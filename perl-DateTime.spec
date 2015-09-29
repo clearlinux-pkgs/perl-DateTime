@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.20
-Release  : 1
+Release  : 2
 URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.20.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.20.tar.gz
 Summary  : 'A date and time object for Perl'
