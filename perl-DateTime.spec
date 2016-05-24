@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.28
-Release  : 10
+Release  : 11
 URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.28.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.28.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -77,13 +77,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/Duration.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/Helpers.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/Infinite.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/LeapSecond.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/PP.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/DateTime/PPExtra.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/Duration.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/Helpers.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/Infinite.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/LeapSecond.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/PP.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/DateTime/PPExtra.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -91,4 +91,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/auto/DateTime/DateTime.so
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/auto/DateTime/DateTime.so
