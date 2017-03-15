@@ -1,3 +1,60 @@
+1.42   2016-12-25
+
+- The DateTime::Duration->add and ->subtract methods now accept
+  DateTime::Duration objects. This used to work by accident, but this is now
+  done intentionally (with docs and tests). Reported by Petr Pisar. GitHub
+  #50.
+
+
+1.41   2016-11-16
+
+- The DateTime->add and ->subtract methods now accept DateTime::Duration
+  objects. This used to work by accident, but this is now done intentionally
+  (with docs and tests). Based on PR #45 from Sam Kington.
+
+
+1.40   2016-11-12
+
+- Switched from RT to the GitHub issue tracker.
+
+
+1.39   2016-09-17
+
+- Bump minimum required Perl to 5.8.4 from 5.8.1. Looking at CPAN Testers,
+  this distro hasn't actually passed with earlier Perl versions since
+  1.35. I'm not explicitly testing with anything earlier than 5.8.8
+
+
+1.38   2016-09-16
+
+- This release includes changes from past trial releases to switch from
+  Params::Validate and Params::ValidationCompiler. Relevant release notes from
+  those trial releases are repeated here for clarity.
+
+- Replaced Params::Validate with Params::ValidationCompiler and Specio. In my
+  benchmarks this makes constructing a new DateTime object about 14%
+  faster. However, it slows down module load time by about 100 milliseconds
+  (1/10 of a second) on my desktop system with a primed cache (so really
+  measuring compile time, not disk load time).
+
+- When you pass a locale to $dt->set you will now get a warning suggesting you
+  should use $dt->set_locale instead. The previous trial releases didn't allow
+  locale to be passed at all, which broke a lot of modules. I've sent PRs, but
+  for now the parameter should be allowed (but discouraged). Reported by
+  Slaven Rezić. RT #115420.
+
+- Removed the long-deprecated DateTime->DefaultLanguage method. Use
+  DefaultLocale instead.
+
+- Removed the long-deprecated "language" constructor parameter. Use "locale"
+  instead.
+
+
+1.37   2016-08-14 (TRIAL RELEASE)
+
+- Require the latest Params::ValidationCompiler (0.11).
+
+
 1.36   2016-08-06
 
 - Require namespace::autoclean 0.19.
@@ -46,18 +103,18 @@
   should use $dt->set_locale instead. The previous trial releases didn't allow
   locale to be passed at all, which broke a lot of modules. I've sent PRs, but
   for now the parameter should be allowed (but discouraged). Reported by
-  Slaven Resic. RT #115420.
+  Slaven Rezić. RT #115420.
 
 
 1.30   2016-06-18 (TRIAL RELEASE)
 
-- Require the latest version of Params::CheckCompiler (0.06). Tests failed
+- Require the latest version of Params::ValidationCompiler (0.06). Tests failed
   with 0.01.
 
 
 1.29   2016-06-17 (TRIAL RELEASE)
 
-- Replaced Params::Validate with Params::CheckCompiler and Specio. In my
+- Replaced Params::Validate with Params::ValidationCompiler and Specio. In my
   benchmarks this makes constructing a new DateTime object about 14%
   faster. However, it slows down module load time by about 100 milliseconds
   (1/10 of a second) on my desktop system with a primed cache (so really
@@ -70,7 +127,7 @@
   epoch like a string instead of a number, certain epochs with a non-integer
   value ended up treated like integers (Perl is weird). Patch by Christian
   Hansen. GitHub #15. This also addresses the problem that GitHub #6 brought
-  up.
+  up. Addresses RT #96452, reported by Slaven Rezić.
 
 
 1.27   2016-05-13
@@ -148,7 +205,7 @@
 - The 30future-tz.t could fail if run at certain very specific times. This
   should now be much less likely, unless a time zone being tested implements a
   DST change at noon (which would even more insane than DST already is by a
-  huge factor). Reported by Karen Etheridge and diagnosed by Slaven Rezic. RT
+  huge factor). Reported by Karen Etheridge and diagnosed by Slaven Rezić. RT
   #102925.
 
 
@@ -204,7 +261,7 @@
 1.11   2014-08-31
 
 - The latest historical changes in DateTime::TimeZone 1.74 caused some tests
-  to fail. Reported by Slaven Rezic. RT #98483.
+  to fail. Reported by Slaven Rezić. RT #98483.
 
 - This release of DateTime.pm now requires the DateTime::TimeZone 1.74.
 
