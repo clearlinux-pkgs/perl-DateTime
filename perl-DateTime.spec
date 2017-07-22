@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.43
-Release  : 18
+Release  : 19
 URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.43.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.43.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -91,15 +91,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/Conflicts.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/Duration.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/Helpers.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/Infinite.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/PP.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/PPExtra.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/DateTime/Types.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Conflicts.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Duration.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Helpers.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Infinite.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/PP.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/PPExtra.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Types.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -107,4 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
