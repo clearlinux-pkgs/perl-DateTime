@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.44
-Release  : 20
+Release  : 21
 URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.44.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.44.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -14,15 +14,21 @@ Requires: perl-DateTime-lib
 Requires: perl-DateTime-doc
 BuildRequires : perl(B::Hooks::EndOfScope)
 BuildRequires : perl(CPAN::Meta::Check)
+BuildRequires : perl(Class::Data::Inheritable)
 BuildRequires : perl(Class::Singleton)
 BuildRequires : perl(DateTime::Locale)
 BuildRequires : perl(DateTime::TimeZone)
+BuildRequires : perl(Devel::StackTrace)
 BuildRequires : perl(Dist::CheckConflicts)
+BuildRequires : perl(Eval::Closure)
+BuildRequires : perl(Exception::Class)
+BuildRequires : perl(MRO::Compat)
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
 BuildRequires : perl(Package::Stash)
 BuildRequires : perl(Params::Validate)
 BuildRequires : perl(Params::ValidationCompiler)
+BuildRequires : perl(Role::Tiny)
 BuildRequires : perl(Specio)
 BuildRequires : perl(Specio::Declare)
 BuildRequires : perl(Specio::Exporter)
@@ -77,6 +83,13 @@ else
 ./Build
 fi
 
+%check
+export LANG=C
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+make TEST_VERBOSE=1 test || :
+
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
@@ -91,15 +104,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Conflicts.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Duration.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Helpers.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Infinite.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/PP.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/PPExtra.pm
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/DateTime/Types.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/Conflicts.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/Duration.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/Helpers.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/Infinite.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/PP.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/PPExtra.pm
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/DateTime/Types.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -107,4 +120,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
+/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
