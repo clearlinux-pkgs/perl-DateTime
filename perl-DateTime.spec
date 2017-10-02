@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.44
-Release  : 21
+Release  : 22
 URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.44.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-1.44.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -12,37 +12,21 @@ Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-DateTime-lib
 Requires: perl-DateTime-doc
-BuildRequires : perl(B::Hooks::EndOfScope)
 BuildRequires : perl(CPAN::Meta::Check)
-BuildRequires : perl(Class::Data::Inheritable)
-BuildRequires : perl(Class::Singleton)
 BuildRequires : perl(DateTime::Locale)
 BuildRequires : perl(DateTime::TimeZone)
-BuildRequires : perl(Devel::StackTrace)
 BuildRequires : perl(Dist::CheckConflicts)
-BuildRequires : perl(Eval::Closure)
-BuildRequires : perl(Exception::Class)
-BuildRequires : perl(MRO::Compat)
-BuildRequires : perl(Module::Implementation)
-BuildRequires : perl(Module::Runtime)
-BuildRequires : perl(Package::Stash)
-BuildRequires : perl(Params::Validate)
 BuildRequires : perl(Params::ValidationCompiler)
-BuildRequires : perl(Role::Tiny)
 BuildRequires : perl(Specio)
 BuildRequires : perl(Specio::Declare)
 BuildRequires : perl(Specio::Exporter)
 BuildRequires : perl(Specio::Library::Builtins)
 BuildRequires : perl(Specio::Library::Numeric)
 BuildRequires : perl(Specio::Library::String)
-BuildRequires : perl(Sub::Exporter::Progressive)
-BuildRequires : perl(Sub::Identify)
 BuildRequires : perl(Test::Fatal)
 BuildRequires : perl(Test::Warnings)
 BuildRequires : perl(Try::Tiny)
-BuildRequires : perl(Variable::Magic)
 BuildRequires : perl(namespace::autoclean)
-BuildRequires : perl(namespace::clean)
 
 %description
 # NAME
@@ -82,13 +66,6 @@ else
 %{__perl} Build.PL
 ./Build
 fi
-
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-make TEST_VERBOSE=1 test || :
 
 %install
 rm -rf %{buildroot}
