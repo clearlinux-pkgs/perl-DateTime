@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.48
-Release  : 26
+Release  : 27
 URL      : https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-1.48.tar.gz
 Source0  : https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-1.48.tar.gz
 Summary  : 'A date and time object for Perl'
