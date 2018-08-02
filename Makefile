@@ -1,5 +1,5 @@
 PKG_NAME := perl-DateTime
-URL = https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-1.49.tar.gz
+URL = https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
