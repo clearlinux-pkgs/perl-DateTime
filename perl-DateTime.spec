@@ -4,10 +4,10 @@
 #
 Name     : perl-DateTime
 Version  : 1.50
-Release  : 40
+Release  : 41
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz
-Summary  : 'A date and time object for Perl'
+Summary  : A complete, easy to use date and time object
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-DateTime-lib = %{version}-%{release}
@@ -41,6 +41,7 @@ Summary: dev components for the perl-DateTime package.
 Group: Development
 Requires: perl-DateTime-lib = %{version}-%{release}
 Provides: perl-DateTime-devel = %{version}-%{release}
+Requires: perl-DateTime = %{version}-%{release}
 
 %description dev
 dev components for the perl-DateTime package.
