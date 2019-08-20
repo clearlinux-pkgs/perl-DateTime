@@ -4,13 +4,16 @@
 #
 Name     : perl-DateTime
 Version  : 1.51
-Release  : 42
+Release  : 43
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
-Summary  : A complete, easy to use date and time object
+Summary  : 'A date and time object for Perl'
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-DateTime-lib = %{version}-%{release}
+Requires: perl-DateTime-license = %{version}-%{release}
+Requires: perl(DateTime::Locale)
+Requires: perl(DateTime::TimeZone)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(CPAN::Meta::Check)
 BuildRequires : perl(DateTime::Locale)
@@ -49,9 +52,18 @@ dev components for the perl-DateTime package.
 %package lib
 Summary: lib components for the perl-DateTime package.
 Group: Libraries
+Requires: perl-DateTime-license = %{version}-%{release}
 
 %description lib
 lib components for the perl-DateTime package.
+
+
+%package license
+Summary: license components for the perl-DateTime package.
+Group: Default
+
+%description license
+license components for the perl-DateTime package.
 
 
 %prep
@@ -61,7 +73,7 @@ lib components for the perl-DateTime package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -72,6 +84,8 @@ fi
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-DateTime
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-DateTime/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -105,3 +119,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files lib
 %defattr(-,root,root,-)
 /usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-DateTime/LICENSE
