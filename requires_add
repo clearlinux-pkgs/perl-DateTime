@@ -2,3 +2,4 @@
 # picked up automatically. One name per line, no whitespace.
 perl(DateTime::Locale)
 perl(DateTime::TimeZone)
+perl(Dist::CheckConflicts)

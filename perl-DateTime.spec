@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.51
-Release  : 43
+Release  : 44
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -14,6 +14,7 @@ Requires: perl-DateTime-lib = %{version}-%{release}
 Requires: perl-DateTime-license = %{version}-%{release}
 Requires: perl(DateTime::Locale)
 Requires: perl(DateTime::TimeZone)
+Requires: perl(Dist::CheckConflicts)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(CPAN::Meta::Check)
 BuildRequires : perl(DateTime::Locale)
