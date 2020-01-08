@@ -4,14 +4,14 @@
 #
 Name     : perl-DateTime
 Version  : 1.51
-Release  : 44
+Release  : 45
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 Summary  : 'A date and time object for Perl'
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: perl-DateTime-lib = %{version}-%{release}
 Requires: perl-DateTime-license = %{version}-%{release}
+Requires: perl-DateTime-perl = %{version}-%{release}
 Requires: perl(DateTime::Locale)
 Requires: perl(DateTime::TimeZone)
 Requires: perl(Dist::CheckConflicts)
@@ -42,21 +42,11 @@ version 1.51
 %package dev
 Summary: dev components for the perl-DateTime package.
 Group: Development
-Requires: perl-DateTime-lib = %{version}-%{release}
 Provides: perl-DateTime-devel = %{version}-%{release}
 Requires: perl-DateTime = %{version}-%{release}
 
 %description dev
 dev components for the perl-DateTime package.
-
-
-%package lib
-Summary: lib components for the perl-DateTime package.
-Group: Libraries
-Requires: perl-DateTime-license = %{version}-%{release}
-
-%description lib
-lib components for the perl-DateTime package.
 
 
 %package license
@@ -67,8 +57,18 @@ Group: Default
 license components for the perl-DateTime package.
 
 
+%package perl
+Summary: perl components for the perl-DateTime package.
+Group: Default
+Requires: perl-DateTime = %{version}-%{release}
+
+%description perl
+perl components for the perl-DateTime package.
+
+
 %prep
 %setup -q -n DateTime-1.51
+cd %{_builddir}/DateTime-1.51
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -86,7 +86,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-DateTime
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-DateTime/LICENSE
+cp %{_builddir}/DateTime-1.51/LICENSE %{buildroot}/usr/share/package-licenses/perl-DateTime/efd0f43592892b58443f30f6486440893111b334
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -99,15 +99,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/Conflicts.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/Duration.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/Helpers.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/Infinite.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/PP.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/PPExtra.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/DateTime/Types.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -117,10 +108,19 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/DateTime::LeapSecond.3
 /usr/share/man/man3/DateTime::Types.3
 
-%files lib
-%defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
-
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-DateTime/LICENSE
+/usr/share/package-licenses/perl-DateTime/efd0f43592892b58443f30f6486440893111b334
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/Conflicts.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/Duration.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/Helpers.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/Infinite.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/PP.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/PPExtra.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/DateTime/Types.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
