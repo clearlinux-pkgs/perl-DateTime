@@ -1,4 +1,4 @@
-1.55
+1.57
 perl(CPAN::Meta::Check)
 perl(DateTime::Locale)
 perl(DateTime::TimeZone)
@@ -10,7 +10,9 @@ perl(Specio::Exporter)
 perl(Specio::Library::Builtins)
 perl(Specio::Library::Numeric)
 perl(Specio::Library::String)
+perl(Specio::Subs)
 perl(Test::Fatal)
 perl(Test::Warnings)
+perl(Test::Without::Module)
 perl(Try::Tiny)
 perl(namespace::autoclean)
