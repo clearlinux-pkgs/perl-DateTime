@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.58
-Release  : 60
+Release  : 61
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.58.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.58.tar.gz
 Summary  : 'A date and time object for Perl'
@@ -116,13 +116,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/Conflicts.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/Duration.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/Helpers.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/Infinite.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/LeapSecond.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/PP.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/PPExtra.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DateTime/Types.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/DateTime/DateTime.so
+/usr/lib/perl5/*
