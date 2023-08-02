@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.59
-Release  : 63
+Release  : 64
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.59.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.59.tar.gz
 Summary  : 'A date and time object for Perl'
