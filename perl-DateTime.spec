@@ -6,13 +6,14 @@
 # autospec commit: 250a666
 #
 Name     : perl-DateTime
-Version  : 1.63
-Release  : 65
-URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.63.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.63.tar.gz
+Version  : 1.65
+Release  : 66
+URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.65.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.65.tar.gz
 Summary  : 'A date and time object for Perl'
 Group    : Development/Tools
 License  : Artistic-2.0
+Requires: perl-DateTime-license = %{version}-%{release}
 Requires: perl-DateTime-perl = %{version}-%{release}
 Requires: perl(DateTime::Locale)
 Requires: perl(DateTime::TimeZone)
@@ -43,7 +44,7 @@ BuildRequires : perl(namespace::autoclean)
 # NAME
 DateTime - A date and time object for Perl
 # VERSION
-version 1.63
+version 1.65
 # SYNOPSIS
 
 %package dev
@@ -56,6 +57,14 @@ Requires: perl-DateTime = %{version}-%{release}
 dev components for the perl-DateTime package.
 
 
+%package license
+Summary: license components for the perl-DateTime package.
+Group: Default
+
+%description license
+license components for the perl-DateTime package.
+
+
 %package perl
 Summary: perl components for the perl-DateTime package.
 Group: Default
@@ -66,10 +75,10 @@ perl components for the perl-DateTime package.
 
 
 %prep
-%setup -q -n DateTime-1.63
-cd %{_builddir}/DateTime-1.63
+%setup -q -n DateTime-1.65
+cd %{_builddir}/DateTime-1.65
 pushd ..
-cp -a DateTime-1.63 buildavx2
+cp -a DateTime-1.65 buildavx2
 popd
 
 %build
@@ -87,6 +96,8 @@ fi
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-DateTime
+cp %{_builddir}/DateTime-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-DateTime/18d188c2641e2c8ff644eb6188ed9063ff6add10 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -109,6 +120,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/DateTime::Infinite.3
 /usr/share/man/man3/DateTime::LeapSecond.3
 /usr/share/man/man3/DateTime::Types.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-DateTime/18d188c2641e2c8ff644eb6188ed9063ff6add10
 
 %files perl
 %defattr(-,root,root,-)
