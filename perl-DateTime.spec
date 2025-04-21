@@ -7,7 +7,7 @@
 #
 Name     : perl-DateTime
 Version  : 1.66
-Release  : 73
+Release  : 74
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.66.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.66.tar.gz
 Summary  : 'A date and time object for Perl'
